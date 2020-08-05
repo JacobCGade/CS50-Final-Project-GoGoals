@@ -1,0 +1,88 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add Goal
+{% endblock %}
+
+{% block main %}
+    <div class="wrap">
+        <h2>Add Goal</h2>
+        <br>
+        <h5>This page is for adding goals. Fill the form below to add a new goal!</h5>
+        <br>
+        <form action="/addGoal" method="post">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Name of Goal:</span>
+                </div>
+                <input type="text" class="form-control" aria-label="Name Of Goal" aria-describedby="inputGroup-sizing-default" name="nameOfGoal" required>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1" class="floatLeft"><strong>Link to Your Vision</strong></label>
+                <textarea name="vision" class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Write how this goal is in line with your life vision" required></textarea>
+            </div>
+            <br>
+            <p>This next part is about what steps you need to take to accomplish this goal. Often times breaking a goal down to small and more digestable bits will make it much easier to complete.</p>
+            <div id="steps">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Step 1</span>
+                    </div>
+                    <input type="text" aria-label="What To Do" class="form-control" placeholder="What needs to be done in this step" name="step1" required>
+                    <select name="numOfSuccesses1" class="form-control col-md-3" required>
+                        <option value="" disabled selected hidden>How Many Successes</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+            <button class="btn btn-outline-primary floatLeft" id="addButton" type="button">Add Step</button>
+            <button class="btn btn-outline-primary floatRight" id="removeButton" type="button">Remove Step</button>
+            <br>
+            <br>
+            <br>
+            <p>Subgoals is about what other benefits or things/habits that you also achieve and accomplish while doing this goal. For instance a goal called "Drink less soda" might
+            also make you drink more water and thereby have a healthier life!</p>
+            <br>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Subgoals:</span>
+                </div>
+                <input type="text" class="form-control" aria-label="Subgoals" aria-describedby="inputGroup-sizing-default" name="subgoals" required>
+            </div>
+            <br>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Deadline:</span>
+                </div>
+                <input type="date" class="form-control" aria-label="Deadline" aria-describedby="inputGroup-sizing-default" name="deadline" required>
+            </div>
+            <br>
+            <input name="stepsCount" type="hidden" value="1" id="stepsCount">
+            <br>
+            <button class="btn btn-primary center" type="submit">Add Goal</button>
+        </form>
+    </div>
+
+{% endblock %}
