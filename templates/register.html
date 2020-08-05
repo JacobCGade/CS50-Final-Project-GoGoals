@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <h1 class="center-text" id="signIn">Register</h1>
+    <div class="register-form">
+        <form action="/register" method="post">
+            <div class="form-group">
+                <input autocomplete="off" autofocus class="form-control" name="username" placeholder="Username" type="text" required>
+            </div>
+            <div class="form-group">
+                <input autocomplete="off" autofocus class="form-control" name="firstName" placeholder="First Name" type="text" required>
+            </div>
+            <div class="form-group">
+                <input autocomplete="off" autofocus class="form-control" name="lastName" placeholder="Last Name" type="text" required>
+            </div>
+            <div class="form-group">
+                <input autocomplete="off" autofocus class="form-control" name="email" placeholder="Email Address" type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+            </div>
+            <div class="form-group">
+                <input autocomplete="off" autofocus class="form-control" name="emailConfirm" placeholder="Confirm Email" type="text" required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" name="password" placeholder="Password" type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                required title="Must include letters both lower and uppercase and one or more numbers. Min. length = 8">
+            </div>
+            <div class="form-group">
+                <input class="form-control" name="passwordConfirm" placeholder="Confirm Password" type="password" required>
+            </div>
+            <div class="form-group">
+                <label for="termsAndConditions">Agree with <a href="#">Terms and Conditions</a>?</label>
+                <input type="checkbox" name="termsAndConditions" required>
+            </div>
+            <button class="btn btn-primary" type="submit">Sign Up</button>
+        </form>
+    </div>
+    <div class="passRequirements">
+        <p><strong>Password:</strong></p>
+        <p>Must include letters both lower and uppercase and one or more numbers. Min. length = 8</p>
+    </div>
+    <br>
+    <br>
+    <p class="center-text">Dont have an account? <a href="/register">Create one now!</a></p>
+    {% if error == True %}
+        {% if usernameError %}
+        <p class="red"><strong>Error:</strong> {{ usernameError }}</p>
+        {% endif %}
+        <br>
+        {% if emailError %}
+        <p class="red"><strong>Error:</strong> {{ emailError }}</p>
+        {% endif %}
+        <br>
+        {% if passwordError %}
+        <p class="red"><strong>Error:</strong> {{ passwordError }}</p>
+        {% endif %}
+    {% endif %}
+{% endblock %}
